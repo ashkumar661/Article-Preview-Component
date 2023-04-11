@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+
+:root {
+    --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+    --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+    --Grayish-Blue: hsl(212, 23%, 69%);
+    --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Manrope', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Light-Grayish-Blue);
+}
+
+main {
+    display: flex;
+    width: 800px;
+    background-color: white;
+    border-radius: 0.7rem
+}
+
+.img-container {
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+    border-radius: 0.7rem 0 0 0.7rem;
+}
+
+
+.article-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 2.5rem;
+    width: 100%;
+}
+
+.article-content h3 {
+    font-weight: 700;
+    color: var(--Very-Dark-Grayish-Blue);
+}
+
+.article-content p {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--Desaturated-Dark-Blue);
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.avatar-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container .profile .avatar-name {
+    font-weight: 700;
+    color: var(--Very-Dark-Grayish-Blue);
+}
+
+.share-container {
+    position: relative;
+}
+
+.share-button {
+    background-color: var(--Light-Grayish-Blue);
+    border-radius: 50%;
+    border: none;
+    padding: 6px;
+    font-size: 10px;
+}
+
+.share-button svg path {
+    fill: var(--Desaturated-Dark-Blue);
+}
+
+.share-button:hover {
+    background-color: var(--Desaturated-Dark-Blue);
+    cursor: pointer;
+}
+
+.share-button:hover svg path {
+    fill: var(--Light-Grayish-Blue);
+    transition: all 0.35s ease-in-out;
+}
+
+.share-options {
+    background-color: var(--Very-Dark-Grayish-Blue);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    bottom: 55px;
+    left: 50%;
+    padding: 14px 33px;
+    border-radius: 8px;
+    transform: translate(-55%, 0) scale(1.1);
+    box-shadow: 0 10px 20px -8px var(--Very-Dark-Grayish-Blue);
+    transform-origin: bottom;
+    visibility: hidden;
+}
+
+.share-options::after {
+    content: "";
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 81%;
+    left: 50%;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    transform: rotate(45deg);
+}
+
+.share-options p {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--Grayish-Blue);
+}
+
+.share-options a:hover {
+    scale: 1.3;
+    transition: all 0.35s ease-out;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Responsiveness */
+
+@media (min-width: 1024px) and (max-width:1440px) {
+    main {
+        width: 60%;
+    }
+}
+
+@media (min-width: 768px) and (max-width:1024px) {
+    main {
+        width: 80%;
+    }
+}
+
+@media (max-width:767px) {
+    main {
+        width: 90%;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .img-container {
+        height: 180px;
+    }
+
+    .img-container img {
+        border-radius: 0.7rem 0.7rem 0 0;
+    }
+
+    .article-content {
+        padding: 1.5rem;
+    }
+
+    .article-content h3 {
+        font-size: 15px;
+    }
+
+    .share-options p {
+        font-size: 10px;
+    }
+
+    .share-container {
+        position: static;
+        z-index: 1;
+    }
+
+    .profile-container{
+        position: relative;
+    }
+
+    .share-options {
+        scale: 1;
+        border-radius: 0;
+        inset: 0px -265px 50% 167px;
+        padding: 0px 0px 12px 32px;
+        margin-bottom: -50px;
+        z-index: -1;
+    }
+}
+
+@media (min-width: 375px) and (max-width:424px){
+    .share-options {
+        padding: 0px 0px 12px 60px;
+    }
+}
+
+@media (min-width: 425px) and (max-width:767px){
+    .share-options {
+        padding: 0px 0px 12px 86px;
+    }
+}
